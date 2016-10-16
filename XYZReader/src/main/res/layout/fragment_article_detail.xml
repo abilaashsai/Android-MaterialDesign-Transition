@@ -2,7 +2,7 @@
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent"
-                                                 android:fitsSystemWindows="false">
+                                                 android:fitsSystemWindows="true">
 
 
   <android.support.design.widget.AppBarLayout
@@ -21,37 +21,32 @@
       app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
       app:layout_scrollFlags="scroll|exitUntilCollapsed"
       >
-
       <FrameLayout
         android:id="@+id/photo_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/background_material_dark"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_collapseMode="parallax"
-
         >
-
         <ImageView
           android:id="@+id/photo"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           android:scaleType="fitXY"
           />
+
       </FrameLayout>
-
-
       <android.support.v7.widget.Toolbar
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_collapseMode="pin"
-        android:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        />
+      android:id="@+id/app_bar"
+      android:layout_width="match_parent"
+      android:layout_height="?actionBarSize"
+      android:popupTheme="@style/Base.Widget.AppCompat.ActionBar"
+      app:layout_collapseMode="pin"
+      android:layout_marginLeft="35dp"
+      />
 
-</android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.CollapsingToolbarLayout>
   </android.support.design.widget.AppBarLayout>
 
   <ImageButton
@@ -70,23 +65,11 @@
   <ScrollView
     android:id="@+id/scrollview"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:nestedScrollingEnabled="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
 
     >
-
-
-    <!--<ScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!---->
-    <!--&gt;-->
-
-    <!--<FrameLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-
 
     <LinearLayout
       android:layout_width="match_parent"

@@ -114,7 +114,6 @@ public class ArticleDetailFragment extends Fragment implements
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         CollapsingToolbarLayout collapsingToolbarLayout=((CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar_layout));
         collapsingToolbarLayout.setTitle("Screen Title");
-
 //        collapsingToolbarLayout.setCollapsedTitleTextColor(R.color.theme_accent);
 //
 
