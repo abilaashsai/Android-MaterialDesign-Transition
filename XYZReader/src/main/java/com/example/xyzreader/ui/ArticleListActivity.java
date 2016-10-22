@@ -1,13 +1,15 @@
 package com.example.xyzreader.ui;
 
-import android.app.LoaderManager;
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.Loader;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -35,25 +37,33 @@ public class ArticleListActivity extends AppCompatActivity implements
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
+    Bundle bundle;
+    DynamicHeightNetworkImageView thumbnailView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        //thumbnailView=(DynamicHeightNetworkImageView)findViewById(R.id.thumbnail);
 
         final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        getLoaderManager().initLoader(0, null, this);
+        getSupportLoaderManager().initLoader(0,null,this);
 
-        if (savedInstanceState == null) {
+
+        if(savedInstanceState == null) {
             refresh();
         }
+
+
     }
 
     private void refresh() {
@@ -78,7 +88,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
+            if(UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
                 mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
                 updateRefreshingUI();
             }
@@ -89,13 +99,23 @@ public class ArticleListActivity extends AppCompatActivity implements
         mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
     }
 
+//    @Override
+//    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+//        return ArticleLoader.newAllArticlesInstance(this);
+//    }
+
+//    @Override
+//    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+//        return ArticleLoader.newAllArticlesInstance(this);
+//    }
+
     @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+    public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return ArticleLoader.newAllArticlesInstance(this);
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+    public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor cursor) {
         Adapter adapter = new Adapter(cursor);
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
@@ -106,7 +126,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
+    public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
         mRecyclerView.setAdapter(null);
     }
 
@@ -128,10 +148,48 @@ public class ArticleListActivity extends AppCompatActivity implements
             View view = getLayoutInflater().inflate(R.layout.list_item_article, parent, false);
             final ViewHolder vh = new ViewHolder(view);
             view.setOnClickListener(new View.OnClickListener() {
+                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                 @Override
                 public void onClick(View view) {
+                    View viewStart = findViewById(R.id.thumbnail);
+                    String transitionName = getString(R.string.transition_photo);
+                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this)
+                            .toBundle();
                     startActivity(new Intent(Intent.ACTION_VIEW,
-                            ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                            ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))), bundle);
+//                    try {
+//                        ActivityOptionsCompat options =
+//
+//                                ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this,
+//                                        view,   // Starting view
+//                                        view.getTransitionName()    // The String
+//                                );
+//                        startActivity(new Intent(Intent.ACTION_VIEW,
+//                                ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))), bundle);
+//                    } catch(Exception e) {
+//                        startActivity(new Intent(Intent.ACTION_VIEW,
+//                                ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+//
+//                    }
+
+
+//                    bundle= ActivityOptions
+//                            .makeSceneTransitionAnimation(
+//                                    this,
+//                                    thumbnailView,
+//                                    thumbnailView.getTransitionName())
+//                            .toBundle();
+//                    Bundle bundle= ActivityOptions
+//                            .makeSceneTransitionAnimation(
+//                                    this,
+//                                    (View) view,
+//                                    view.getTransitionName())
+//                            .toBundle();
+
+//                    ActivityOptionsCompat activityOptionsCompat=ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                            this,getApplicationContext().thumbnailView,"hai"
+//                    );
+
                 }
             });
             return vh;
@@ -170,6 +228,7 @@ public class ArticleListActivity extends AppCompatActivity implements
             thumbnailView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
             titleView = (TextView) view.findViewById(R.id.article_title);
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
+
         }
     }
 }

@@ -1,5 +1,6 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 android:id="@+id/hhh"
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent"
                                                  android:fitsSystemWindows="true">
@@ -21,30 +22,43 @@
       app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
       app:layout_scrollFlags="scroll|exitUntilCollapsed"
       >
-      <FrameLayout
+
+      <LinearLayout
         android:id="@+id/photo_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background_material_dark"
+        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_collapseMode="parallax"
-        >
+        app:layout_collapseMode="parallax">
+
         <ImageView
           android:id="@+id/photo"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:scaleType="fitXY"
+          android:adjustViewBounds="true"
+          android:transitionName="@string/transition_photo"
           />
 
-      </FrameLayout>
+        <!--<ImageView-->
+        <!--android:id="@+id/photo1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:transitionName="@string/transition_photo"-->
+        <!--android:src="@drawable/ic_arrow_back"-->
+        <!--/>-->
+
+      </LinearLayout>
+
       <android.support.v7.widget.Toolbar
-      android:id="@+id/app_bar"
-      android:layout_width="match_parent"
-      android:layout_height="?actionBarSize"
-      android:popupTheme="@style/Base.Widget.AppCompat.ActionBar"
-      app:layout_collapseMode="pin"
-      android:layout_marginLeft="35dp"
-      />
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginLeft="35dp"
+        android:popupTheme="@style/Base.Widget.AppCompat.ActionBar"
+        app:layout_collapseMode="pin"
+        />
 
     </android.support.design.widget.CollapsingToolbarLayout>
   </android.support.design.widget.AppBarLayout>
@@ -72,6 +86,7 @@
     >
 
     <LinearLayout
+      android:id="@+id/whole_text"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical">
