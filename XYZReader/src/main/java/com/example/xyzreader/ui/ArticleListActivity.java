@@ -37,8 +37,8 @@ public class ArticleListActivity extends AppCompatActivity implements
     private Toolbar mToolbar;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
-    Bundle bundle;
     DynamicHeightNetworkImageView thumbnailView;
+    TextView textView;
 
 
     @Override
@@ -46,6 +46,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
+        textView = (TextView) findViewById(R.id.article_title);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -117,6 +118,11 @@ public class ArticleListActivity extends AppCompatActivity implements
     @Override
     public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor cursor) {
         Adapter adapter = new Adapter(cursor);
+//        if(adapter.getItemCount()==0){
+//            mRecyclerView.setVisibility(View.VISIBLE);
+//        } else{
+//            mRecyclerView.setVisibility(View.GONE);
+//        }
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
         int columnCount = getResources().getInteger(R.integer.list_column_count);
@@ -153,7 +159,7 @@ public class ArticleListActivity extends AppCompatActivity implements
                 public void onClick(View view) {
                     View viewStart = findViewById(R.id.thumbnail);
                     String transitionName = getString(R.string.transition_photo);
-                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this)
+                    Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,vh.titleView,vh.titleView.getTransitionName())
                             .toBundle();
                     startActivity(new Intent(Intent.ACTION_VIEW,
                             ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))), bundle);
@@ -198,6 +204,7 @@ public class ArticleListActivity extends AppCompatActivity implements
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             mCursor.moveToPosition(position);
+
             holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             holder.subtitleView.setText(
                     DateUtils.getRelativeTimeSpanString(
@@ -217,7 +224,6 @@ public class ArticleListActivity extends AppCompatActivity implements
             return mCursor.getCount();
         }
     }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public DynamicHeightNetworkImageView thumbnailView;
         public TextView titleView;
@@ -228,7 +234,6 @@ public class ArticleListActivity extends AppCompatActivity implements
             thumbnailView = (DynamicHeightNetworkImageView) view.findViewById(R.id.thumbnail);
             titleView = (TextView) view.findViewById(R.id.article_title);
             subtitleView = (TextView) view.findViewById(R.id.article_subtitle);
-
         }
     }
 }

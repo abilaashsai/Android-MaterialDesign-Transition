@@ -48,10 +48,10 @@ public class ArticleDetailActivity extends AppCompatActivity
         setContentView(R.layout.activity_article_detail);
 
         Slide slide = new Slide(Gravity.BOTTOM);
-        slide.addTarget(R.id.article_body);
+        slide.addTarget(R.id.card_view);
         slide.setInterpolator(AnimationUtils.loadInterpolator(this,
                 android.R.interpolator.linear_out_slow_in));
-        slide.setDuration(1000);
+        slide.setDuration(300);
         getWindow().setEnterTransition(slide);
         ActivityCompat.postponeEnterTransition(this);
 

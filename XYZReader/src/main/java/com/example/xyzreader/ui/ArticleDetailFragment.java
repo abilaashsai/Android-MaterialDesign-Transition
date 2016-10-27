@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,6 +46,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     private DrawInsetsFrameLayout mDrawInsetsFrameLayout;
     private ColorDrawable mStatusBarColorDrawable;
 
+    String title;
     private int mTopInset;
     private View mPhotoContainerView;
     private ImageView mPhotoView;
@@ -67,7 +69,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().supportStartPostponedEnterTransition();
+       // getActivity().supportStartPostponedEnterTransition();
 
         if(getArguments().containsKey(ARG_ITEM_ID)) {
             mItemId = getArguments().getLong(ARG_ITEM_ID);
@@ -102,6 +104,8 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         final CollapsingToolbarLayout collapsingToolbarLayout = ((CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar_layout));
+        collapsingToolbarLayout.setContentScrimColor(mMutedColor);
+        collapsingToolbarLayout.setBackgroundColor(mMutedColor);
         AppBarLayout appBarLayout = (AppBarLayout) mRootView.findViewById(R.id.app_bar_layout);
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
 
@@ -125,7 +129,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                     collapsingToolbarLayout.setTitle("");
 
                 } else {
-                    collapsingToolbarLayout.setTitle("Title");
+                    collapsingToolbarLayout.setTitle(title);
                 }
             }
         });
@@ -135,7 +139,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
 
         mStatusBarColorDrawable = new ColorDrawable(0);
         bindViews();
-        updateStatusBar();
+        //updateStatusBar();
         return mRootView;
     }
 
@@ -172,7 +176,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
             return;
         }
 
-        TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
+        TextView titleView = (TextView) mRootView.findViewById(R.id.article_title_detail);
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
@@ -181,7 +185,8 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
-            titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            title = mCursor.getString(ArticleLoader.Query.TITLE);
+            titleView.setText(title);
             bylineView.setText(Html.fromHtml(
                     DateUtils.getRelativeTimeSpanString(
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
@@ -209,6 +214,28 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
 
+                        }
+                    });
+            scheduleStartPostponedTransition(titleView);
+
+        }else {
+            mRootView.setVisibility(View.GONE);
+            titleView.setText("N/A");
+            bylineView.setText("N/A");
+            bodyView.setText("N/A");
+        }
+    }
+
+    private void scheduleStartPostponedTransition(final View sharedElement) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            sharedElement.getViewTreeObserver().addOnPreDrawListener(
+                    new ViewTreeObserver.OnPreDrawListener() {
+                        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                        @Override
+                        public boolean onPreDraw() {
+                            sharedElement.getViewTreeObserver().removeOnPreDrawListener(this);
+                            getActivity().startPostponedEnterTransition();
+                            return true;
                         }
                     });
         }
