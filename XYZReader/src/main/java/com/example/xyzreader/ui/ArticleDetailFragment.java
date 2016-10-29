@@ -1,9 +1,11 @@
 package com.example.xyzreader.ui;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -12,6 +14,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
 import android.text.format.DateUtils;
@@ -22,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -53,6 +57,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
+    ProgressBar progressBar;
 
     public ArticleDetailFragment() {
     }
@@ -70,7 +75,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        // getActivity().supportStartPostponedEnterTransition();
-
         if(getArguments().containsKey(ARG_ITEM_ID)) {
             mItemId = getArguments().getLong(ARG_ITEM_ID);
         }
@@ -103,6 +107,9 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
+        progressBar = (ProgressBar) mRootView.findViewById(R.id.progressImage);
+        progressBar.getIndeterminateDrawable().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+
         final CollapsingToolbarLayout collapsingToolbarLayout = ((CollapsingToolbarLayout) mRootView.findViewById(R.id.collapsing_toolbar_layout));
         collapsingToolbarLayout.setContentScrimColor(mMutedColor);
         collapsingToolbarLayout.setBackgroundColor(mMutedColor);
@@ -207,12 +214,13 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
-                                updateStatusBar();
+                                progressBar.setVisibility(View.GONE);
                             }
                         }
 
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
+                            progressBar.setVisibility(View.GONE);
 
                         }
                     });
@@ -263,6 +271,15 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
             mCursor.close();
             mCursor = null;
         }
+        mRootView.findViewById(R.id.share_fab).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
+                        .setType("text/plain")
+                        .setText("Some sample text")
+                        .getIntent(), getString(R.string.action_share)));
+            }
+        });
 
         bindViews();
     }
