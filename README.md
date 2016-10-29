@@ -5,10 +5,12 @@ This app uses material design to give the best user experience. Animations and t
 
 SCREENSHOTS
 
-Main UI
+Main View
+
 ![Alt text](https://github.com/abilaashsai/Make-your-app-Material/blob/master/MainActivity.png "Main UI")
 
 Detail View
+
 ![Alt text](https://github.com/abilaashsai/Make-your-app-Material/blob/master/DetailActivity.png "Detail UI")
 
 
