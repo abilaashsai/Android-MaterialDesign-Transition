@@ -96,15 +96,7 @@
           </LinearLayout>
         </FrameLayout>
       </LinearLayout>
-      <!--</FrameLayout>-->
-      <!--<ImageView-->
-      <!--android:id="@+id/photo1"-->
-      <!--android:layout_width="match_parent"-->
-      <!--android:layout_height="match_parent"-->
-      <!--android:adjustViewBounds="true"-->
-      <!--android:transitionName="@string/transition_photo"-->
-      <!--android:src="@drawable/ic_arrow_back"-->
-      <!--/>-->
+
       <android.support.v7.widget.Toolbar
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
@@ -159,8 +151,6 @@
 
       </LinearLayout>
     </android.support.v7.widget.CardView>
-    <!--</FrameLayout>-->
-    <!--</ScrollView>-->
   </ScrollView>
 
   <de.hdodenhof.circleimageview.CircleImageView
@@ -189,8 +179,5 @@
     android:layout_height="?actionBarSize"
     app:layout_anchor="@id/main.framelayout.title"
     />
-  <!--android:elevation="@dimen/fab_elevation"-->
-
-  <!--android:stateListAnimator="@anim/fab_state_list_anim"/>-->
 
 </android.support.design.widget.CoordinatorLayout>

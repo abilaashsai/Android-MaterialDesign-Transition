@@ -173,38 +173,6 @@ public class ArticleListActivity extends AppCompatActivity implements
                             .toBundle();
                     startActivity(new Intent(Intent.ACTION_VIEW,
                             ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))), bundle);
-//                    try {
-//                        ActivityOptionsCompat options =
-//
-//                                ActivityOptionsCompat.makeSceneTransitionAnimation(ArticleListActivity.this,
-//                                        view,   // Starting view
-//                                        view.getTransitionName()    // The String
-//                                );
-//                        startActivity(new Intent(Intent.ACTION_VIEW,
-//                                ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))), bundle);
-//                    } catch(Exception e) {
-//                        startActivity(new Intent(Intent.ACTION_VIEW,
-//                                ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
-//
-//                    }
-
-
-//                    bundle= ActivityOptions
-//                            .makeSceneTransitionAnimation(
-//                                    this,
-//                                    thumbnailView,
-//                                    thumbnailView.getTransitionName())
-//                            .toBundle();
-//                    Bundle bundle= ActivityOptions
-//                            .makeSceneTransitionAnimation(
-//                                    this,
-//                                    (View) view,
-//                                    view.getTransitionName())
-//                            .toBundle();
-
-//                    ActivityOptionsCompat activityOptionsCompat=ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                            this,getApplicationContext().thumbnailView,"hai"
-//                    );
 
                 }
             });
