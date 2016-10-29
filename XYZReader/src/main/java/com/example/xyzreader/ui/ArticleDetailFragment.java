@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,11 +32,6 @@ import com.android.volley.toolbox.ImageLoader;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 
-/**
- * A fragment representing a single Article detail screen. This fragment is
- * either contained in a {@link ArticleListActivity} in two-pane mode (on
- * tablets) or a {@link ArticleDetailActivity} on handsets.
- */
 public class ArticleDetailFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final String TAG = "ArticleDetailFragment";
     public static final String ARG_ITEM_ID = "item_id";
@@ -74,7 +68,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // getActivity().supportStartPostponedEnterTransition();
         if(getArguments().containsKey(ARG_ITEM_ID)) {
             mItemId = getArguments().getLong(ARG_ITEM_ID);
         }
@@ -187,7 +180,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-        bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
         if(mCursor != null) {
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
@@ -199,9 +191,9 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                             mCursor.getLong(ArticleLoader.Query.PUBLISHED_DATE),
                             System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                             DateUtils.FORMAT_ABBREV_ALL).toString()
-                            + " by <font color='#ffffff'>"
+                            + getResources().getString(R.string.by_font_color)
                             + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                            + "</font>"));
+                            + getResources().getString(R.string.end_font)));
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY)));
             ImageLoaderHelper.getInstance(getActivity()).getImageLoader()
                     .get(mCursor.getString(ArticleLoader.Query.PHOTO_URL), new ImageLoader.ImageListener() {
@@ -226,16 +218,16 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                     });
             scheduleStartPostponedTransition(titleView);
 
-        }else {
+        } else {
             mRootView.setVisibility(View.GONE);
-            titleView.setText("N/A");
-            bylineView.setText("N/A");
-            bodyView.setText("N/A");
+            titleView.setText(getResources().getString(R.string.not_available));
+            bylineView.setText(getResources().getString(R.string.not_available));
+            bodyView.setText(getResources().getString(R.string.not_available));
         }
     }
 
     private void scheduleStartPostponedTransition(final View sharedElement) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             sharedElement.getViewTreeObserver().addOnPreDrawListener(
                     new ViewTreeObserver.OnPreDrawListener() {
                         @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -275,8 +267,8 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
             @Override
             public void onClick(View view) {
                 startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
-                        .setType("text/plain")
-                        .setText("Some sample text")
+                        .setType(getResources().getString(R.string.text_plain))
+                        .setText(title)
                         .getIntent(), getString(R.string.action_share)));
             }
         });

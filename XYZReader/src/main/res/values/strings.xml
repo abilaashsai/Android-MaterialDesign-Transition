@@ -10,5 +10,10 @@
     <string name="up">Up</string>
     <string name="transition_photo">main_image</string>
     <string name="transition_article_title">transition_article_title</string>
+    <string name="by_font_color" translatable="false"><![CDATA[by <font color=\'#ffffff\'>]]></string>
+    <string name="end_font" translatable="false"><![CDATA[</font>]]></string>
+    <string name="not_available">N/A</string>
+    <string name="text_plain" translatable="false">text/plain</string>
+    <string name="by">by</string>
 
 </resources>
