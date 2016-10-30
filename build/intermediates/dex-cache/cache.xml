@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.3.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/de.hdodenhof-circleimageview-1.3.0_bdeecbfc17c0b61ed17155281824c548e7736ff9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.1.2/7052283359001bb108753cb0583a887d3bf94c82/okhttp-3.1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="7052283359001bb108753cb0583a887d3bf94c82">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.1.2_63dc0b7e0d3be725a9dca4a028221a2cd12498d8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/design/23.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1aa5b025efe97f5006f5be16d6ca67c6c3c0c0d8">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.2.0_998ed432b5659054b34d9daf9bb0970d3d534c9e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/palette-v7/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="15b669fd484d82539a354ccd1f2a08737474e95e">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-23.0.0_16a841eec5320a61c374569d000c857a69964e92/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="292a9fa091757208efa65e77eef63088247e51f3">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.2.0_caf4d86ea6334d1d7537559c87b09ce2e9ae76a3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.0/support-annotations-23.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.2.0_7260232134c25182646a02182385e6f72b124d62/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2553dd02a74d6323af442fec7cb7287ade6d6a3a">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_25276439f97b8934dea0a5430a6f945e5a728db1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8c108c22c99e794eff255bb34d2a461200c4cbb0">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.2.0_8835b925a8690077945b4c08a1fc9052fedb4b91/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6e3578f92f7462d1a935a1d36173e3bdd1234976">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.2.0_e1cbdad32d60d942416063f72eb6583741aba19c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/libs/volley.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c68094cbd011a3f9dccbfe16e77a2cf43622e277">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/2/volley_426e2232c6df014258c530cda43ee507d8f0b21b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="58888e3c465f11fbe37f03f44f2f098dd036d6b2">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d4b7d387089f2e9db7d0c3883f1cca9be43bc30a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/libs/internal_impl-23.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.2.0_054f58c73cffdf898652ca5b68362d5db70adbb0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d4c936aa8c7d2522c82e3f1829c791d9e367f009">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.2.0_69e9acb0a8db0c9f8bcb3d71dfbbbecbcbbb8ef0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-23.0.0_90a8d574818b0f76d07ff96a1cf935d57bd15d3c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="cb86970df0f0f25f766d320b279c7858c1ca0003">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-23.2.1_defb8847192ee46d2e71d621279f6753d6610fc9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.6.0_15d9762bf894f2ed6e4e72fb673d5d39db3e230e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.2.0_9db2f1be07bcfb30b91fd40d58b83d6b8d1bc281/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="/Users/abilashr/AndroidStudioProjects/xyzreader/XYZReader/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_3c3c6844be7d016917e1579008c16d0eceff5378/classes.dex" />
+    </item>
+
+</items>
