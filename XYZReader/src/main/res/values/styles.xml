@@ -26,6 +26,7 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="colorPrimary">@color/deep_purple_500</item>
         <item name="colorPrimaryDark">@color/deep_purple_700</item>
+        <item name="colorAccent">@color/theme_accent</item>
 
     </style>
 
