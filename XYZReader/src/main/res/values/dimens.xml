@@ -6,7 +6,7 @@
 
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="collapsing_toolbar_heading">3dp</dimen>
-    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
     <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="spacing_normal">16dp</dimen>
