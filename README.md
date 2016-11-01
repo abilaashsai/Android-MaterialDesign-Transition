@@ -7,7 +7,7 @@ SCREENSHOTS
 
 Main View
 
-![Alt text](https://github.com/abilaashsai/Make-your-app-Material/blob/master/MainActivity.png "Main UI")
+![Alt text](https://github.com/abilaashsai/Make-your-app-Material/blob/master/MainUI.png "Main UI")
 
 Detail View
 
