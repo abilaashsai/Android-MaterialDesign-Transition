@@ -1,7 +1,7 @@
 #Android-MaterialDesign-Transition
 ===================================
 
-This app uses material design to give the best user experience. Animations and transitions are used across the activities. Each and every design from font, size and colors are choosen as per Material Design specifications. Responsiveness is achieved and it makes user comfortable using the application.
+This app uses material design to give the best user experience. Animations and transitions are used across the activities. Each and every design from font, size and colors are chosen as per Material Design specifications. Responsiveness is achieved and it makes user comfortable using the application.
 
 ##Run it on your machine
 ---------------
